@@ -15,11 +15,12 @@ class Menu {
     
     private static Vector<Menu> inizializzaMenu(){
         Vector<Menu> menu = new Vector<>();
-        menu.add(new  Menu("-----", "-----"));
+        menu.add(new  Menu("------ME", "NU_-----"));
         menu.add(new Menu("1","Inserisci persona"));
         menu.add(new Menu("2","Togli persona"));
         menu.add(new Menu("3","Vedi persone"));
         menu.add(new Menu("4","Esci"));
+        menu.add(new Menu("------","------"));
         return menu;
     }
     
@@ -27,7 +28,7 @@ class Menu {
     public static void mostraMenu(){
         
         for(Menu opzione : opzioniMenu){
-            System.out.println(opzione.inserimento + "-" + opzione.descrizione);
+            System.out.println(opzione.inserimento  + opzione.descrizione);
         }
     }
     
@@ -36,24 +37,13 @@ class Menu {
         switch (scelta) {
             case 1:
                 System.out.println();
-                System.out.print("Nome: ");
-                String nome = scanner.nextLine();
-                System.out.print("Cognome: ");
-                String cognome = scanner.nextLine();
-                System.out.print("Età: ");
-                int eta = scanner.nextInt();
-                scanner.nextLine();
-                System.out.print("Codice gravità (verde/giallo/rosso): ");
-                String codice = scanner.nextLine().toLowerCase();
+                
                 ospedale.aggiungiPersona(new Persona(nome,  cognome, codice, eta, false));
                 System.out.println();
                 break;
             case 2:
                 System.out.println();
-                System.out.print("Nome: ");
-                String Nome = scanner.nextLine();
-                System.out.print("Cognome: ");
-                String Cognome = scanner.nextLine();
+                
                 ospedale.rimuoviPaziente(Nome, Cognome);
                 System.out.println();
                 break;
